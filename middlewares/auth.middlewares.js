@@ -18,7 +18,7 @@ exports.verifyToken = async function (req, res, next) {
 
 
     try {
-        req.user = jwt.decode(token, jwt_secret);
+        req.user = token;
         next();
     } catch (err) {
         return res.status(401).send({message: 'Unauthorized'});
